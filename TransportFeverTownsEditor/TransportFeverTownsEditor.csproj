@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Classes\Coord.cs" />
     <Compile Include="Classes\Town.cs" />
-    <Compile Include="Classes\TownDatabase.cs" />
     <Compile Include="FChangeSizeFactor.cs">
       <SubType>Form</SubType>
     </Compile>
