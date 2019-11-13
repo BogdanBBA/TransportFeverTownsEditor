@@ -46,7 +46,12 @@ namespace TransportFeverTownsEditor
 
 					List<string> lines = File.ReadAllLines(openFileDialog.FileName, Encoding.UTF8).ToList();
 					List<string> townLines = lines.Where(line => Regex.IsMatch(line, Town.LINE_REGEX)).ToList();
-					List<Town> towns = townLines.Select(line => new Town(line)).ToList();
+					List<Town> towns = townLines.Select(line => new Town(line))
+						.OrderBy(town => town.Name)
+						.ThenByDescending(town => town.SizeFactor)
+						.ThenBy(town => town.Position.X)
+						.ThenBy(town => town.Position.Y)
+						.ToList();
 					InitializeFormData(mapName, towns);
 				}
 				catch (Exception ex)
@@ -107,6 +112,11 @@ namespace TransportFeverTownsEditor
 			DGV.ClearSelection();
 		}
 
+		private void SelectByRegExToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			new FSelectByRegEx(DGV).ShowDialog(this);
+		}
+
 		private void InvertSelectionToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			for (int index = 0; index < DGV.Rows.Count; index++)
@@ -117,12 +127,15 @@ namespace TransportFeverTownsEditor
 
 		private void DeleteSelectedTownsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			List<Town> townsDeletedNow = new List<Town>();
 			foreach (DataGridViewRow item in DGV.SelectedRows)
 			{
 				Town town = item.DataBoundItem as Town;
+				townsDeletedNow.Add(town);
 				DeletedTowns.Add(town);
 				DGV.Rows.Remove(item);
 			}
+			Utils.DisplayDeletedTownsMessage(townsDeletedNow);
 		}
 
 		private void DeleteTownsOnTheEdgeToolStripMenuItem_Click(object sender, EventArgs e)

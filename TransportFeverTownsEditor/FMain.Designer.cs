@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMain));
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,18 +41,19 @@
 			this.selectNoneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.invertSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.deleteSelectedTownsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.deleteTownsOnTheEdgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.changeSizeFactorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.OpenedFileL = new System.Windows.Forms.Label();
 			this.DGV = new System.Windows.Forms.DataGridView();
-			this.deleteSelectedTownsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.StatusL = new System.Windows.Forms.Label();
-			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.changeSizeFactorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.sizeFactorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.DGVSource = new System.Windows.Forms.BindingSource(this.components);
-			this.deleteTownsOnTheEdgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.StatusL = new System.Windows.Forms.Label();
+			this.selectByRegExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DGVSource)).BeginInit();
@@ -83,7 +85,7 @@
 			// 
 			this.openToolStripMenuItem.Name = "openToolStripMenuItem";
 			this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-			this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.openToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
 			this.openToolStripMenuItem.Text = "Open";
 			this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
 			// 
@@ -91,19 +93,19 @@
 			// 
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
 			this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.saveToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
 			this.saveToolStripMenuItem.Text = "Save";
 			this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(151, 6);
 			// 
 			// exitApplicationToolStripMenuItem
 			// 
 			this.exitApplicationToolStripMenuItem.Name = "exitApplicationToolStripMenuItem";
-			this.exitApplicationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.exitApplicationToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
 			this.exitApplicationToolStripMenuItem.Text = "Exit application";
 			this.exitApplicationToolStripMenuItem.Click += new System.EventHandler(this.ExitApplicationToolStripMenuItem_Click);
 			// 
@@ -112,6 +114,7 @@
 			this.operationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.selectAllToolStripMenuItem,
             this.selectNoneToolStripMenuItem,
+            this.selectByRegExToolStripMenuItem,
             this.invertSelectionToolStripMenuItem,
             this.toolStripSeparator2,
             this.deleteSelectedTownsToolStripMenuItem,
@@ -147,6 +150,33 @@
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(209, 6);
+			// 
+			// deleteSelectedTownsToolStripMenuItem
+			// 
+			this.deleteSelectedTownsToolStripMenuItem.Name = "deleteSelectedTownsToolStripMenuItem";
+			this.deleteSelectedTownsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+			this.deleteSelectedTownsToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+			this.deleteSelectedTownsToolStripMenuItem.Text = "Delete selected towns";
+			this.deleteSelectedTownsToolStripMenuItem.Click += new System.EventHandler(this.DeleteSelectedTownsToolStripMenuItem_Click);
+			// 
+			// deleteTownsOnTheEdgeToolStripMenuItem
+			// 
+			this.deleteTownsOnTheEdgeToolStripMenuItem.Name = "deleteTownsOnTheEdgeToolStripMenuItem";
+			this.deleteTownsOnTheEdgeToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+			this.deleteTownsOnTheEdgeToolStripMenuItem.Text = "Delete towns on the edge";
+			this.deleteTownsOnTheEdgeToolStripMenuItem.Click += new System.EventHandler(this.DeleteTownsOnTheEdgeToolStripMenuItem_Click);
+			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(209, 6);
+			// 
+			// changeSizeFactorToolStripMenuItem
+			// 
+			this.changeSizeFactorToolStripMenuItem.Name = "changeSizeFactorToolStripMenuItem";
+			this.changeSizeFactorToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+			this.changeSizeFactorToolStripMenuItem.Text = "Change size factor";
+			this.changeSizeFactorToolStripMenuItem.Click += new System.EventHandler(this.ChangeSizeFactorToolStripMenuItem_Click);
 			// 
 			// openFileDialog
 			// 
@@ -185,36 +215,6 @@
 			this.DGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellClick);
 			this.DGV.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_CellMouseUp);
 			// 
-			// deleteSelectedTownsToolStripMenuItem
-			// 
-			this.deleteSelectedTownsToolStripMenuItem.Name = "deleteSelectedTownsToolStripMenuItem";
-			this.deleteSelectedTownsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-			this.deleteSelectedTownsToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-			this.deleteSelectedTownsToolStripMenuItem.Text = "Delete selected towns";
-			this.deleteSelectedTownsToolStripMenuItem.Click += new System.EventHandler(this.DeleteSelectedTownsToolStripMenuItem_Click);
-			// 
-			// StatusL
-			// 
-			this.StatusL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.StatusL.Location = new System.Drawing.Point(325, 24);
-			this.StatusL.Name = "StatusL";
-			this.StatusL.Size = new System.Drawing.Size(463, 21);
-			this.StatusL.TabIndex = 3;
-			this.StatusL.Text = "---";
-			this.StatusL.TextAlign = System.Drawing.ContentAlignment.TopRight;
-			// 
-			// toolStripSeparator3
-			// 
-			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(209, 6);
-			// 
-			// changeSizeFactorToolStripMenuItem
-			// 
-			this.changeSizeFactorToolStripMenuItem.Name = "changeSizeFactorToolStripMenuItem";
-			this.changeSizeFactorToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-			this.changeSizeFactorToolStripMenuItem.Text = "Change size factor";
-			this.changeSizeFactorToolStripMenuItem.Click += new System.EventHandler(this.ChangeSizeFactorToolStripMenuItem_Click);
-			// 
 			// nameDataGridViewTextBoxColumn
 			// 
 			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
@@ -243,12 +243,22 @@
 			this.DGVSource.DataSource = typeof(TransportFeverTownsEditor.Classes.Town);
 			this.DGVSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.DGVSource_ListChanged);
 			// 
-			// deleteTownsOnTheEdgeToolStripMenuItem
+			// StatusL
 			// 
-			this.deleteTownsOnTheEdgeToolStripMenuItem.Name = "deleteTownsOnTheEdgeToolStripMenuItem";
-			this.deleteTownsOnTheEdgeToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-			this.deleteTownsOnTheEdgeToolStripMenuItem.Text = "Delete towns on the edge";
-			this.deleteTownsOnTheEdgeToolStripMenuItem.Click += new System.EventHandler(this.DeleteTownsOnTheEdgeToolStripMenuItem_Click);
+			this.StatusL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.StatusL.Location = new System.Drawing.Point(325, 24);
+			this.StatusL.Name = "StatusL";
+			this.StatusL.Size = new System.Drawing.Size(463, 21);
+			this.StatusL.TabIndex = 3;
+			this.StatusL.Text = "---";
+			this.StatusL.TextAlign = System.Drawing.ContentAlignment.TopRight;
+			// 
+			// selectByRegExToolStripMenuItem
+			// 
+			this.selectByRegExToolStripMenuItem.Name = "selectByRegExToolStripMenuItem";
+			this.selectByRegExToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+			this.selectByRegExToolStripMenuItem.Text = "Select by RegEx";
+			this.selectByRegExToolStripMenuItem.Click += new System.EventHandler(this.SelectByRegExToolStripMenuItem_Click);
 			// 
 			// FMain
 			// 
@@ -259,6 +269,7 @@
 			this.Controls.Add(this.DGV);
 			this.Controls.Add(this.menuStrip1);
 			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "FMain";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -298,6 +309,7 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripMenuItem changeSizeFactorToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem deleteTownsOnTheEdgeToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem selectByRegExToolStripMenuItem;
 	}
 }
 

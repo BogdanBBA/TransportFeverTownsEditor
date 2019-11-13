@@ -61,6 +61,7 @@ namespace TransportFeverTownsEditor
 					townsToDelete.Add(town);
 				}
 			}
+			Utils.DisplayDeletedTownsMessage(townsToDelete);
 
 			for (int index = 0; index < townsToDelete.Count; index++)
 			{

@@ -49,7 +49,7 @@ namespace TransportFeverTownsEditor
 				default:
 					break;
 			}
-			return Math.Min(2.0f, Math.Max(0.0f, result));
+			return Math.Min(2.0f, Math.Max(0.1f, result));
 		}
 
 		private void ChangeB_Click(object sender, EventArgs e)
